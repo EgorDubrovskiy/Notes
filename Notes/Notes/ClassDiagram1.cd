@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Notes.Controllers.AdminController">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgACAAQAAAAAAEAAAAAAAEAAAAAAQgAAEAAAAIAgA=</HashCode>
+      <FileName>Controllers\AdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Заметки.Controllers.HomeController">
+    <Position X="2" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Заметки.Controllers.NoteController">
+    <Position X="2" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAEAEAAAACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\NoteController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notes.Controllers.UserController">
+    <Position X="3.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAFAAAAAAQAAAAQAAAAAAgAAQCAAQBJACQAAAEAAA=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notes.Helpers.ListNotesItemHelper">
+    <Position X="5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\ListNotesItemHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notes.Models.ReCaptchaClass">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAACAAAAAAAAEAAAAAgAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\ReCaptchaClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notes.Models.MyLibrary">
+    <Position X="6.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MyLibrary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notes.Models.User">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAAAAAAAAAAAAAAAACAAAAAgAACAAAABAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

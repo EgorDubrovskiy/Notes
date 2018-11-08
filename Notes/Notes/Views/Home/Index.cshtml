@@ -1,0 +1,154 @@
+﻿ <!-- recaptcha -->
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+<ul class="nav nav-pills mb-3 mt-1 ml-1" id="pills-tab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="pill" href="#reg-container" role="tab" aria-controls="pills-reg" aria-selected="true">Регистрация</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#authorization-container" role="tab" aria-controls="pills-authorization" aria-selected="false">Вход</a>
+    </li>
+    <li class="nav-item nav-link" title="восстановление пароля">
+        <img src="~/Content/Images/ForGuest/passRecovery.png" onclick="PassRecoveryClick()" alt="восстановление пароля" id="PassRecovery">
+    </li>
+</ul>
+
+<!-- модальное окно для уведомления пользователя-->
+<div class="modal fade" id="signupFormOk" tabindex="-1" role="dialog" aria-labelledby="signupFormOk" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="modal-title" id="messageBoxText"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12"><button type="button" class="btn btn-primary w-100" data-dismiss="modal" aria-label="Close">ок</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Регистрация-->
+<div class="tab-content d-flex justify-content-center" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="reg-container" role="tabpanel" aria-labelledby="reg-container-tab">
+        <form id="form_signup">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group" id="signup-form-group-email">
+                        <label class="form-control-label">Главный Email</label>
+                        <input type="email" class="form-control notSpace" id="form_signup_email" oninput="RegValMainEmail.EmailChange('form_signup_email', 'form_signup_restoring_email', 'signup-form-email-feedback')" required>
+                        <h6 id="signup-form-email-feedback"></h6>
+                        <small class="form-text text-muted">Главный Email для отправки оповещений</small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group" id="signup-form-group-restoring_email">
+                        <label class="form-control-label">Дополнительный Email</label>
+                        <input type="email" class="form-control notSpace" id="form_signup_restoring_email" oninput="RegValRestEmail.EmailChange('form_signup_restoring_email', 'form_signup_email', 'signup-form-restoring_email-feedback')" required>
+                        <h6 id="signup-form-restoring_email-feedback"></h6>
+                        <small class="form-text text-muted">Email для восстановления пароля</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group" id="signup-form-group-password">
+                        <label class="form-control-label">Пароль</label>
+                        <input type="password" class="form-control notSpace" id="form_signup_pass" oninput="RegValPass.PassChange('form_signup_pass', 'signup-form-pass-feedback')" required>
+                        <h6 id="signup-form-pass-feedback"></h6>
+                        <small class="form-text text-muted">Пароль должен содержать от 8 до 20 символов</small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group" id="signup-form-group-password2">
+                        <label class="form-control-label">Подтверждение пароля</label>
+                        <input type="password" class="form-control notSpace" id="form_signup_pass2" oninput="RegValPassConf.PassConfChange('form_signup_pass2', 'form_signup_pass', 'signup-form-pass2-feedback')" required>
+                        <h6 id="signup-form-pass2-feedback"></h6>
+                        <small class="form-text text-muted">Повторите пароль</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <div id="g-recaptcha-response-reg" class="g-recaptcha"></div>
+                        <h6 id="passRecoveryRecaptchaError"></h6>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary mr-1" onclick="Registr()">Регистрация</button>
+            <span class="d-none text-danger" id="errorAreaForReg">Введите корректные данные!</span>
+        </form>
+    </div>
+    <!--Авторизация-->
+    <div class="tab-pane fade" id="authorization-container" role="tabpanel" aria-labelledby="authorization-container-tab">
+        <form id="form_authorization">
+            <div class="form-group" id="authorization-form-group-email">
+                <label class="form-control-label">Главный Email</label>
+                <input type="text" class="form-control notSpace" id="form_authorization_email" oninput="AutValMainEmail.EmailChange('form_authorization_email', 'login-form-authorization-email-feedback')" required>
+                <h6 id="login-form-authorization-email-feedback"></h6>
+                <small class="form-text text-muted">Email адрес указанный как главный при регистрации</small>
+            </div>
+            <div class="form-group" id="authorization-form-group-password">
+                <label class="form-control-label">Пароль</label>
+                <input type="password" class="form-control notSpace" id="form_authorization_pass" name="password" oninput="AutValPass.PassChange('form_authorization_pass', 'form_authorization_email', 'form-authorization-pass-invalid')" required>
+                <h6 id="form-authorization-pass-invalid"></h6>
+                <small class="form-text text-muted">Пароль должен содержать от 8 до 20 символов</small>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <div id="g-recaptcha-response-aut" class="g-recaptcha"></div>
+                        <h6 id="passRecoveryRecaptchaError"></h6>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary mr-1" onclick="UserLogin()">Войти</button>
+            <span class="d-none text-danger" id="errorAreaLogin">Введите корректные данные!</span>
+        </form>
+    </div>
+</div>
+
+<!-- модальное окно для отправки письма на восстановление пароля -->
+<div class="modal fade" id="passRecoveryModal" tabindex="-1" role="dialog" aria-labelledby="passRecoveryModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Восстановление пароля</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span><!-- крестик -->
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="passRecoveryForm">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Адрес почты для восстановления пароля</label>
+                                <input type="email" id="passRecoveryEmail" class="form-control notSpace" oninput="PassRecValRecEmail.EmailChange('passRecoveryEmail','passRecoveryEmailError')" required>
+                                <h6 id="passRecoveryEmailError"></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div>
+                                <div id="g-recaptcha-response-passRecovery" class="g-recaptcha"></div>
+                                <h6 id="passRecoveryRecaptchaError"></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" onclick="PassRecSendToEmail()" class="btn btn-primary mr-1">Отправить письмо</button>
+                    <span class="d-none text-danger" id="errorAreaPassRecovery">Введите корректные данные!</span>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Libraries/MyLibrary.js"></script>
+<script src="~/Scripts/Authentication.js"></script>

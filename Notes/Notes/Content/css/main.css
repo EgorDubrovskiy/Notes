@@ -1,0 +1,117 @@
+
+.pl-0-125 {
+    padding-left: 0.125rem !important;
+}
+
+.pr-0-125 {
+    padding-right: 0.125rem !important;
+}
+
+.cp:hover{
+    cursor:pointer;
+}
+
+#Notes-List-Show {
+    display:none;
+    margin: 5px;
+}
+
+.Notes-List-Item {
+    height: 115px;
+    border-bottom: 1.5px solid #2c3e50;
+}
+
+.Notes-List-Item-Active {
+    background: #41bc6c;
+}
+
+img.Notes-List-Item-Controll-Delete, .Notes-List-Item-Controll-Delete-Example {
+    height: 18px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+}
+
+.list-group-item.active {
+    color: #fff !important;
+}
+
+/*сплавающий список заметок начало*/
+.Notes-List-Container.active {
+    transition-property: margin-left;
+    margin-left: 0;
+    transition-duration: 0.5s;
+}
+
+.Notes-List-Container {
+    transition-property: margin-left;
+    height: 100%;
+    overflow-y: auto;
+    transition-duration: 0.5s;
+    z-index: 1;
+    width: 300px;
+}
+/*сплавающий список заметок конец*/
+
+#EditPanelContainer{
+    width: calc(100% - 300px);
+}
+
+.Note-Date {
+    width: 215px;
+}
+
+.Note-List-Item-Date {
+    float: right;
+    margin-top: 2px;
+    font-size: 14px;
+}
+
+.exit-button {
+    height: 40px;
+}
+
+.Notes-List-Item-Title {
+    clear: both;
+    /*если текст не вмещаеться обрезаем и доб. многоточие*/
+    white-space: nowrap;
+    /* Запрещаем перенос строк */
+    overflow: hidden;
+    /* Обрезаем все, что не помещается в область */
+    text-overflow: ellipsis;
+    /* Добавляем многоточие */
+}
+
+.Notes-List-Item-Description {
+    height: 65px;
+    line-height: 21.5px;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+}
+
+.Notes-List-Item-Controll-Container {
+    line-height: 17px;
+    border-bottom: 1.5px solid #2c3e50;
+    height: 25px;
+    border-top: 1.5px solid #2c3e50;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+}
+
+.Notes-List-Item-Controll-Delete:hover{
+    cursor: pointer;
+}
+
+.center-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+#PassRecovery {
+    height: 30px;
+    width: auto;
+}

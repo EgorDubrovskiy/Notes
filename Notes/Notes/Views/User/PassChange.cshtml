@@ -1,0 +1,55 @@
+﻿<link href="~/Content/css/changePass.css" rel="stylesheet" />
+
+<form id="changePassForm">
+    <div class="row w-100 m-0">
+        <div class="col-md-3 p-0"></div>
+        <div class="col-md-6 col-12">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label class="form-control-label">Пароль</label>
+                        <input type="password" class="form-control " id="PassInput" name="signup_password"
+                               oninput="ValPass.PassChange('PassInput', 'PassMistakeArea')" required>
+                        <h6 id="PassMistakeArea"></h6>
+                        <small class="form-text text-muted">Пароль должен содержать от 8 до 20 символов</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label class="form-control-label">Подтверждение пароля</label>
+                        <input type="password" class="form-control " id="PassRecInput" name="signup_password2"
+                               oninput="ValPassConf.PassConfChange('PassRecInput','PassInput', 'PassRecMistakeArea')" required>
+                        <h6 id="PassRecMistakeArea"></h6>
+                        <small class="form-text text-muted">Повторите пароль</small>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary mr-1" onclick="PassChange()">Изменить пароль</button>
+            <span class="d-none text-danger" id="errorArea">Введите корректные данные!</span>
+        </div>
+        <div class="col-md-3 p-0"></div>
+    </div>
+</form>
+
+<!-- модальное окно для уведомления пользователя-->
+<div class="modal fade" id="signupFormOk" tabindex="-1" role="dialog" aria-labelledby="signupFormOk" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="modal-title" id="messageBoxText"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12"><button type="button" class="btn btn-primary w-100" data-dismiss="modal" aria-label="Close">ок</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Libraries/MyLibrary.js"></script>
+<script src="~/Scripts/PassChange.js"></script>

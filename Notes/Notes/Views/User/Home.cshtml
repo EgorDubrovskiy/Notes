@@ -1,0 +1,58 @@
+﻿
+<script src="~/Scripts/Libraries/jQuery.dotdotdot-master/src/jquery.dotdotdot.js"></script>
+<script src="~/Libs/ckeditor/ckeditor.js"></script><div class="row m-0 h-100 w-100 p-1 position-absolute">
+    <div class="Notes-List-Container p-0">
+        @using Notes.Helpers
+        @ListNotesItemHelper.CreateList(Html, ViewBag.Notes)
+    </div>
+    <div class="p-0" id="EditPanelContainer">
+        <button type="button" class="btn btn-primary exit-button float-right"
+                title="выход из учётной записи пользователя" id="user-exit">
+            Выход
+        </button>
+        <div title="Показать список заметок" id="Notes-List-Show" class="cp float-right">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
+                <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
+            </svg>
+        </div>
+        <div class="pl-1 Control-Note-Container">
+            <input type="datetime-local" class="mb-1 Note-Date form-control float-left" id="Note-Date" required>
+            <input type="text" class="form-control Note-Title w-100 mb-1" placeholder="Название" id="Note-Title" required>
+            <textarea class="form-control Note-Discription w-100 mt-1" placeholder="Описание" rows="5"
+                      id="Note-Discription" name="Note-Discription"></textarea>
+            <div class="row p-0 m-0">
+                <div class="col-6 pl-0 pr-0-125">
+                    <button type="button" class="btn btn-primary w-100 mt-1" id="SaveNote">Сохранить изменения</button>
+                </div>
+                <div class="col-6 pr-0 pl-0-125">
+                    <button type="button" class="btn btn-primary w-100 mt-1" id="AddNote">Добавить заметку</button>
+                </div>
+                <div class="col-12 p-0">
+                    <button type="button" class="btn btn-primary w-100 mt-1" id="ClearNote">Очистить поля</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- модальное окно для уведомления пользователя-->
+<div class="modal fade" id="signupFormOk" tabindex="-1" role="dialog" aria-labelledby="signupFormOk" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="modal-title" id="messageBoxText"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12"><button type="button" class="btn btn-primary w-100" data-dismiss="modal" aria-label="Close">ок</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Libraries/MyLibrary.js"></script>
+<script src="~/Scripts/UserHome.js"></script>
+

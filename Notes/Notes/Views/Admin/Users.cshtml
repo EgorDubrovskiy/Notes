@@ -1,0 +1,30 @@
+﻿@using GridMvc.Html
+
+@*css and js*@
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+<script src="~/Scripts/gridmvc.min.js"></script>
+
+<div class="code-cut">
+    @using Notes.Models
+    @Html.Grid(DB.db.Users).Columns(Columns =>
+    {
+        Columns.Add(c => c.Id).Titled("Id").Filterable(true);
+        Columns.Add(c => c.MainEmail).Titled("Главный email").Filterable(true);
+        Columns.Add(c => c.SecretKey).Titled("Секретный ключ").Filterable(true);
+        Columns.Add(c => c.Password).Titled("Пароль").Filterable(true);
+        Columns.Add(c => c.RestoringEmail).Titled("Email для вост. пароля").Filterable(true);
+        Columns.Add()
+            .Encoded(false)
+            .Sanitized(false)
+            .SetWidth(30)
+            .RenderValueAs(o => Html.ActionLink("Edit", "EditUser", new { id = o.Id }));
+        Columns.Add()
+            .Encoded(false)
+            .Sanitized(false)
+            .SetWidth(30)
+            .RenderValueAs(o => Html.ActionLink("Delete", "DeleteUser", new { id = o.Id }));
+    })
+
+    <button type="button" class="btn btn-light">@Html.ActionLink("Add", "AddUser")</button>
+
+</div>

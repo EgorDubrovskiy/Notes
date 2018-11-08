@@ -1,0 +1,21 @@
+﻿
+<form method="post" class="p-4">
+    <input type="hidden" value="@ViewBag.Note.Id" name="Id" />
+    <div class="form-group" id="authorization-form-group-email">
+        <label class="form-control-label">Заголовок</label>
+        <input class="form-control " type="text" value="@ViewBag.Note.Title" name="Title" />
+    </div>
+    <div class="form-group" id="authorization-form-group-email">
+        <label class="form-control-label">Описание</label>
+        <input class="form-control " type="text" value="@ViewBag.Note.Description" name="Description" />
+    </div>
+    <div class="form-group" id="authorization-form-group-email">
+        <label class="form-control-label">Дата</label>
+        <input class="form-control " type="datetime" value="@ViewBag.Note.Date" name="Date" />
+    </div>
+    <div class="form-group" id="authorization-form-group-email">
+        <label class="form-control-label">Id пользователя</label>
+        <input class="form-control " type="number" value="@ViewBag.Note.UserId" name="UserId" />
+    </div>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+</form>

@@ -1,0 +1,36 @@
+
+/*Регистрация и авторизация*/
+@media screen and (min-width: 650px) {
+    #reg-container, #authorization-container {
+        width: 580px;
+    }
+}
+
+@media screen and (max-width: 649px) {
+    #reg-container, #authorization-container {
+        width: calc(100% - 2rem);
+        margin: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    #Notes-List-Show{
+        display:block;
+    }
+
+    .Notes-List-Container {
+        position: absolute;
+        margin-left: calc(-300px - 0.5rem);
+    }
+
+    #EditPanelContainer {
+        width: 100%;
+    }
+
+    .Control-Note-Container{
+        padding-left: 0 !important;
+    }
+
+}
+
